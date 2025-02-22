@@ -21,3 +21,10 @@ export const formConfig: FormProps = {
     },
   },
 };
+
+export const STORAGE_KEYS = {
+    CLIENT_TOKEN: "client_token",
+    EXPIRES_IN: "expires_in",
+    REFRESH_TOKEN: "refresh_token",
+    USER_DATA: "user_data"
+}

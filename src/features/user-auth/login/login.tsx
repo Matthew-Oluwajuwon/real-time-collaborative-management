@@ -4,17 +4,20 @@ import UserIcon from "@/assets/icons/user.svg";
 import { formConfig } from "@/configs";
 import { SubmitButton } from "@/ui";
 import { Button, Form, Image, Input } from "antd";
+import { useLogin } from "./api";
 
 document.title = "Login | Real time collaborative management tool";
 
 export const Login = () => {
   const [form] = Form.useForm();
+  const { onLogin, loading } = useLogin();
+
   return (
-    <Form form={form} {...formConfig} className="w-sm !px-3">
-      <Form.Item name="username" rules={[{ required: true }]}>
+    <Form form={form} onFinish={onLogin} {...formConfig} className="w-sm !px-3">
+      <Form.Item name="email" rules={[{ required: true }, { type: "email" }]}>
         <Input
           prefix={<Image src={UserIcon} alt="user-icon" preview={false} />}
-          placeholder="USERNAME"
+          placeholder="EMAIL ADDRESS"
           className="font-light text-sm"
           classNames={{
             prefix: "pr-3",
@@ -32,7 +35,7 @@ export const Login = () => {
           }}
         />
       </Form.Item>
-      <SubmitButton form={form}>LOGIN</SubmitButton>
+      <SubmitButton form={form} loading={loading}>LOGIN</SubmitButton>
       <Button
         type="text"
         variant="text"

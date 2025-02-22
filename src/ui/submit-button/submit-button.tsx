@@ -4,10 +4,12 @@ import { PropsWithChildren, useEffect, useState } from "react";
 
 interface SubmitButtonProps {
   form: FormInstance;
+  loading: boolean;
 }
 
 export const SubmitButton: React.FC<PropsWithChildren<SubmitButtonProps>> = ({
   form,
+  loading,
   children,
 }) => {
   const [submittable, setSubmittable] = useState<boolean>(false);
@@ -26,6 +28,7 @@ export const SubmitButton: React.FC<PropsWithChildren<SubmitButtonProps>> = ({
     <Button
       type="primary"
       htmlType="submit"
+      loading={loading}
       variant="filled"
       color="primary"
       block
