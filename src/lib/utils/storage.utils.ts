@@ -68,8 +68,7 @@ export class StorageUtil {
     try {
       JSON.parse(str);
       return true;
-    } catch (error) {
-      console.error("Error parsing JSON", error);
+    } catch {
       return false;
     }
   }

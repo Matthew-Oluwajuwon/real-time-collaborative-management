@@ -9,7 +9,7 @@ export const userAuthRoutes: RouteObject[] = [
       {
         path: "/",
         Component: Login,
-      },
+      }
     ],
   },
 ];

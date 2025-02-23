@@ -2,6 +2,7 @@ import { STORAGE_KEYS } from "@/configs";
 import { supabase, useNotification } from "@/features/shared";
 import { StorageUtil } from "@/lib";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface LoginRequest {
   email: string;
@@ -16,6 +17,7 @@ interface UseLoginFunction {
 export const useLogin = (): UseLoginFunction => {
   const [loading, setLoading] = useState(false);
   const { onNotify } = useNotification();
+  const navigate = useNavigate();
 
   const onLogin = async (request: LoginRequest) => {
     setLoading(true);
@@ -39,6 +41,9 @@ export const useLogin = (): UseLoginFunction => {
         data.session?.refresh_token
       );
       StorageUtil.setItem(STORAGE_KEYS.USER_DATA, data.user);
+      return navigate("/dashboard", {
+        replace: true,
+      });
     } catch (error) {
       console.error(error);
       onNotify("error", "An unknown error occured.");

@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { useAuthCheck } from '../hooks';
+import { useAuthCheck } from '../../../shared/hooks';
 
 const ProtectedLayout = ({ children }: PropsWithChildren) => {
   const isAuthenticated = useAuthCheck();

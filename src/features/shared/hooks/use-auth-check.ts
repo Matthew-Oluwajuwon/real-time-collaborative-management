@@ -8,7 +8,7 @@ export const useAuthCheck = (): boolean => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = StorageUtil.getItem(STORAGE_KEYS.CLIENT_TOKEN);
+    const token = StorageUtil.getItem<string>(STORAGE_KEYS.CLIENT_TOKEN);
     if (!token) {
       navigate("/");
     } else {
