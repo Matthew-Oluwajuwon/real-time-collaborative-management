@@ -16,7 +16,7 @@ export const themeConfig: ThemeConfig = {
         Button: {
             borderRadiusLG: 5,
             borderColorDisabled: "transparent",
-            colorBgContainerDisabled: "#264ECA",
+            colorBgContainerDisabled: "#A0C4FF",
         }
     }
 }
