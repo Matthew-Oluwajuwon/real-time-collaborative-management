@@ -1,4 +1,5 @@
 import { RouteObject } from "react-router-dom";
+import { Dashboard } from "../../dashboard";
 import ProtectedLayout from "../layout/protected-layout";
 
 export const taskMgtRoutes: RouteObject[] = [
@@ -7,7 +8,7 @@ export const taskMgtRoutes: RouteObject[] = [
     children: [
         {
             path: '/dashboard',
-            element: <div>Dashboard</div>
+            Component: Dashboard
         }
     ],
   },

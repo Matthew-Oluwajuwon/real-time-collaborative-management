@@ -1,14 +1,14 @@
-import { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 import { useAuthCheck } from '../../../shared/hooks';
 
-const ProtectedLayout = ({ children }: PropsWithChildren) => {
+const ProtectedLayout = () => {
   const isAuthenticated = useAuthCheck();
 
   if (!isAuthenticated) {
     return null
   }
 
-  return children
+  return <Outlet />;
 };
 
 export default ProtectedLayout;
